@@ -89,13 +89,22 @@ console.log(taskCloneObj);
   } 
 
   const generatedObj={
-    ...user,
+    __proto__:user,
+    /**name:'Den',*/ 
+    /*
+    !посмотри (стр106) - так он - Anton, а если переназначить - Den 
+    */ 
     password:userUpdate.password,
     id:userUpdate.id,
     age:userUpdate.age
   }
-
+  console.log(`Initial object:`);
   console.log(user);
-  console.log(generatedObj);
+  console.log(`Generated object:`);
+  console.log(generatedObj.name);
+  console.log('Cycled object:');
+  for (let key in generatedObj){
+    console.log(`${key} is ${generatedObj[key]}`);
+  }
 
  
